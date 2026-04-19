@@ -48,5 +48,26 @@ _G.NidavellirData.Skins = {
     {"PALE", Color3.fromRGB(253, 234, 212)}, {"LIGHT", Color3.fromRGB(246, 203, 175)}, {"MEDIUM", Color3.fromRGB(219, 153, 114)},
     {"TAN", Color3.fromRGB(180, 113, 76)}, {"DARK", Color3.fromRGB(124, 76, 50)}, {"DEEP", Color3.fromRGB(67, 40, 24)}, {"BLACK", Color3.fromRGB(0, 0, 0)}
 }
--
+
+_G.NidavellirData.Accessories = {
+    {"CAT EARS", "1374148", "413143035", -0.65, 0.15},
+    {"FLAME HORNS", "215680403", "658646189", -1.3, 0, Vector3.new(1,1,1), {Color = Color3.fromRGB(52, 206, 236), Heat = 5}},
+    {"RED FLAME HORNS", "79855980527088", "120274046498591", -1.3, 0, Vector3.new(1.3, 1.3, 1.3), {Color = Color3.fromRGB(236, 139, 70), Heat = 9}},
+    {"VOID CROWN", "1125478", "1125479", -0.45, 0, Vector3.new(0.65, 0.65, 0.65)},
+    {"GOLDEN CROWN", "1078075", "1078071", -0.45, 0},
+    {"PARTY HAT", "1778999", "1778994", -1.1, 0},
+    {"ORANGE CW HP", "187943426", "285584518", -0.35, 0, Vector3.new(0.40, 0.40, 0.40)},
+    {"WHITE CW HP", "187943426", "189255923", -0.35, 0, Vector3.new(0.40, 0.40, 0.40)},
+    {"VALKYRIE", "1365696", "1365693", -0.85, 0},
+    {"BLACKVALK", "1365696", "124896442", -0.85, 0},
+    {"EERIE", "1158007", "1158415", -0.45, 0.18, Vector3.new(0.45, 0.45, 0.45)},
+    {"GHOSDEERI", "1474596", "178262783", -0.45, 0.05, Vector3.new(0.45, 0.45, 0.45), {Color = Color3.fromRGB(52, 206, 236), Heat = 5}},
+    {"BLIZZARIA", "1158007", "106676124", -0.45, 0.18, Vector3.new(0.45, 0.45, 0.45)},
+    {"RED VOID STAR", "1125478", "1191134671", -0.45, 0, Vector3.new(0.65, 0.65, 0.65)},
+    {"BLING BLING", "6552775", "6552788", -1.1, 0},
+    {"SHADES", "1577360", "1577349", -0.32, 0},
+    {"IRON BUCKET", "1286103", "128154319", -0.65, 0},
+    {"SKY FEDORA", "1285237", "493450535", -0.65, 0},
+    {"CHICKEN SUIT", "24101267", "24108148", -0.35, 0}
+}
 
