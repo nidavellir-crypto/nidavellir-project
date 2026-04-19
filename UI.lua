@@ -127,6 +127,69 @@ for _, accData in ipairs(_G.NidavellirData.Accessories) do
         end
     end)
 end
+local UserInputService = game:GetService("UserInputService")
+local Functions = require(script.Parent.Functions)
+local player = game:GetService("Players").LocalPlayer
+
+local MainGui = script.Parent -- Assuming this is the ScreenGui
+local Frame = MainGui:FindFirstChild("MainFrame") -- Change this to your actual Frame name
+
+-- Toggle Visibility with F7
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if not gameProcessed and input.KeyCode == Enum.KeyCode.F7 then
+        Frame.Visible = not Frame.Visible
+    end
+end)
+
+-- Button Logic Template
+local function CreateBottomCloseButton(parentTab)
+    local CloseBtn = Instance.new("TextButton")
+    CloseBtn.Name = "CloseButton"
+    CloseBtn.Size = UDim2.new(1, -10, 0, 30)
+    CloseBtn.Position = UDim2.new(0, 5, 1, -35) -- Fixed at the bottom
+    CloseBtn.Text = "CLOSE"
+    CloseBtn.BackgroundColor3 = Color3.fromRGB(200, 50, 50)
+    CloseBtn.Parent = parentTab
+    
+    CloseBtn.MouseButton1Click:Connect(function()
+        Frame.Visible = false
+    end)
+end
+
+-- 1. Outfit Tab Logic
+-- Call this when equipping an outfit
+function ApplyOutfit()
+    local char = player.Character
+    Functions.ApplyOutfitTransparency(char)
+end
+
+-- Reset Outfit Button
+-- (Connect this to your actual UI Button object)
+OutfitResetBtn.MouseButton1Click:Connect(function()
+    player.CharacterAppearanceLoaded:Wait()
+    player:LoadCharacter() -- Simplest way to reset the whole look
+end)
+
+-- 2. Tools Tab: Reset Time
+ResetTimeBtn.MouseButton1Click:Connect(function()
+    Functions.ResetTime()
+end)
+
+-- 3. Accessories Tab: Remove Accs
+RemoveAccsBtn.MouseButton1Click:Connect(function()
+    Functions.RemoveAllAccessories(player.Character)
+end)
+
+-- 4. Skin Tone Tab: Reset Color
+ResetSkinBtn.MouseButton1Click:Connect(function()
+    Functions.ResetSkinTone(player.Character)
+end)
+
+-- Initialize Close Buttons for all tabs
+local tabs = {Frame.OutfitTab, Frame.ToolsTab, Frame.AccsTab, Frame.SkinTab}
+for _, tab in pairs(tabs) do
+    CreateBottomCloseButton(tab)
+end
 -- GUNS
 for skinName, _ in pairs(_G.NidavellirData.WEAPON_SKINS) do
     local baseWepName = string.split(skinName, " ")[1]
