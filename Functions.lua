@@ -45,6 +45,59 @@ _G.NidavellirFunctions.applyLighting = function(targetTime)
     end)
 end
 
+local Functions = {}
+
+local Lighting = game:GetService("Lighting")
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Transparency Logic for Outfits
+_G.NidavellirFunctions.ApplyOutfitTransparency(character)
+    if not character then return end
+    local partsToHide = {"Head", "Left Leg", "LeftUpperLeg", "LeftLowerLeg", "LeftFoot"}
+    for _, partName in pairs(partsToHide) do
+        local part = character:FindFirstChild(partName)
+        if part then
+            part.Transparency = 1
+            -- Hide face if it exists on the head
+            if partName == "Head" and part:FindFirstChild("face") then
+                part.face.Transparency = 1
+            end
+        end
+    end
+end
+
+-- Reset Time Cycle
+_G.NidavellirFunctions.ResetTime()
+    Lighting.ClockTime = 12 -- Resets to noon
+end
+
+-- Remove Accessories
+_G.NidavellirFunctions.RemoveAllAccessories(character)
+    if not character then return end
+    for _, item in pairs(character:GetChildren()) do
+        if item:IsA("Accessory") then
+            item:Destroy()
+        end
+    end
+end
+
+-- Reset Skin Tone
+_G.NidavellirFunctions.ResetSkinTone(character)
+    if not character then return end
+    local bodyColors = character:FindFirstChildOfClass("BodyColors")
+    if bodyColors then
+        -- Defaulting to a standard neutral tone
+        local defaultColor = BrickColor.new("Medium stone grey")
+        bodyColors.HeadColor = defaultColor
+        bodyColors.LeftArmColor = defaultColor
+        bodyColors.RightArmColor = defaultColor
+        bodyColors.LeftLegColor = defaultColor
+        bodyColors.RightLegColor = defaultColor
+        bodyColors.TorsoColor = defaultColor
+    end
+end
+
 _G.NidavellirFunctions.applyLevelHide = function()
     pcall(function()
         local core = Player.PlayerGui:FindFirstChild("CoreGUI")
