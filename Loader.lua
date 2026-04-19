@@ -1,5 +1,5 @@
 -- Replace 'YourUsername' and 'YourRepo' with your actual GitHub details!
-local BaseURL = "https://raw.githubusercontent.com/YourUsername/YourRepo/main/"
+local BaseURL = "https://raw.githubusercontent.com/nidavellir-crypto/nidavellir-project/refs/heads/main/data.lua"
 
 local function Load(file)
     local code = game:HttpGet(BaseURL .. file)
