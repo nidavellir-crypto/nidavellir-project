@@ -83,6 +83,22 @@ createBtn("NIGHTSHIFT", BordeauxColor, ToolP, function() _G.NidavellirFunctions.
 createBtn("DAYSHIFT", BordeauxColor, ToolP, function() _G.NidavellirFunctions.applyLighting(12) end)
 createBtn("FPS HIDDEN", BordeauxColor, ToolP, function() _G.StatsSpoofed = not _G.StatsSpoofed _G.NidavellirFunctions.applyStatsSpoof() end)
 
+-- Static Footer Buttons
+local ResetAvatarBtn = createBtn("RESET AVATAR", DarkBordeaux, MainFrame, function() applyOutfit(OriginalShirt, OriginalPants, true) end)
+ResetAvatarBtn.Size = UDim2.new(1, -20, 0, 30) ResetAvatarBtn.Position = UDim2.new(0, 10, 1, -85)
+
+local ResetSkinBtn = createBtn("RESET SKIN TONE", DarkBordeaux, MainFrame, function() applySkin(nil, true) end)
+ResetSkinBtn.Size = UDim2.new(1, -20, 0, 30) ResetSkinBtn.Position = UDim2.new(0, 10, 1, -85) ResetSkinBtn.Visible = false
+
+local ResetTimeBtn = createBtn("RESET TIME CYCLE", DarkBordeaux, MainFrame, function() applyLighting(nil) end)
+ResetTimeBtn.Size = UDim2.new(1, -20, 0, 30) ResetTimeBtn.Position = UDim2.new(0, 10, 1, -85) ResetTimeBtn.Visible = false
+
+local ResetAccBtn = createBtn("REMOVE ACCESSORIES", DarkBordeaux, MainFrame, function()
+    CurrentAccArgs = nil
+    if Player.Character then for _, v in pairs(Player.Character:GetChildren()) do if v.Name == "NidavellirCustomAcc" then v:Destroy() end end end
+end)
+ResetAccBtn.Size = UDim2.new(1, -20, 0, 30) ResetAccBtn.Position = UDim2.new(0, 10, 1, -85) ResetAccBtn.Visible = false
+
 -- GUNS
 for skinName, _ in pairs(_G.NidavellirData.WEAPON_SKINS) do
     local baseWepName = string.split(skinName, " ")[1]
