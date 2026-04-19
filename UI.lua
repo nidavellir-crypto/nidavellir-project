@@ -99,6 +99,47 @@ local ResetAccBtn = createBtn("REMOVE ACCESSORIES", DarkBordeaux, MainFrame, fun
 end)
 ResetAccBtn.Size = UDim2.new(1, -20, 0, 30) ResetAccBtn.Position = UDim2.new(0, 10, 1, -85) ResetAccBtn.Visible = false
 
+-- === ACCESSORIES TAB ===
+createBtn("CAT EARS", BordeauxColor, AccP, function() CurrentAccArgs = {"1374148", "413143035", -0.65, 0.15} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("FLAME HORNS", BordeauxColor, AccP, function() CurrentAccArgs = {"215680403", "658646189", -1.3, 0, Vector3.new(1,1,1), {Color = Color3.fromRGB(52, 206, 236), Heat = 5}} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("RED FLAME HORNS", BordeauxColor, AccP, function() CurrentAccArgs = {"79855980527088", "120274046498591", -1.3, 0, Vector3.new(1.3, 1.3, 1.3), {Color = Color3.fromRGB(236, 139, 70), Heat = 9}} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("VOID CROWN", BordeauxColor, AccP, function() CurrentAccArgs = {"1125478", "1125479", -0.45, 0, Vector3.new(0.65, 0.65, 0.65)} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("GOLDEN CROWN", BordeauxColor, AccP, function() CurrentAccArgs = {"1078075", "1078071", -0.45, 0} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("PARTY HAT", BordeauxColor, AccP, function() CurrentAccArgs = {"1778999", "1778994", -1.1, 0} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("ORANGE CW HP", BordeauxColor, AccP, function() CurrentAccArgs = {"187943426", "285584518", -0.35, 0, Vector3.new(0.40, 0.40, 0.40)} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("WHITE CW HP", BordeauxColor, AccP, function() CurrentAccArgs = {"187943426", "189255923", -0.35, 0, Vector3.new(0.40, 0.40, 0.40)} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("VALKYRIE", BordeauxColor, AccP, function() CurrentAccArgs = {"1365696", "1365693", -0.85, 0} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("BLACKVALK", BordeauxColor, AccP, function() CurrentAccArgs = {"1365696", "124896442", -0.85, 0} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("EERIE", BordeauxColor, AccP, function() CurrentAccArgs = {"1158007", "1158415", -0.45, 0.18, Vector3.new(0.45, 0.45, 0.45)} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("GHOSDEERI", BordeauxColor, AccP, function() CurrentAccArgs = {"1474596", "178262783", -0.45, 0.05, Vector3.new(0.45, 0.45, 0.45), {Color = Color3.fromRGB(52, 206, 236), Heat = 5}} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("BLIZZARIA", BordeauxColor, AccP, function() CurrentAccArgs = {"1158007", "106676124", -0.45, 0.18, Vector3.new(0.45, 0.45, 0.45)} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("RED VOID STAR", BordeauxColor, AccP, function() CurrentAccArgs = {"1125478", "1191134671", -0.45, 0, Vector3.new(0.65, 0.65, 0.65)} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("BLING BLING", BordeauxColor, AccP, function() CurrentAccArgs = {"6552775", "6552788", -1.1, 0} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("SHADES", BordeauxColor, AccP, function() CurrentAccArgs = {"1577360", "1577349", -0.32, 0} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("IRON BUCKET", BordeauxColor, AccP, function() CurrentAccArgs = {"1286103", "128154319", -0.65, 0} applyAcc(Player.Character, CurrentAccArgs) end)
+createBtn("SKY FEDORA", BordeauxColor, AccP, function() CurrentAccArgs = {"1285237", "493450535", -0.65, 0} applyAcc(Player.Character, CurrentAccArgs) end)
+
+createBtn("CHICKEN SUIT", BordeauxColor, AccP, function()
+    CurrentAccArgs = {"24101267", "24108148", -0.35, 0}
+    applyAcc(Player.Character, CurrentAccArgs)
+    local char = Player.Character
+    if char then
+        local acc = char:WaitForChild("NidavellirCustomAcc", 2)
+        if acc then
+            local s1 = Instance.new("Sound", acc) s1.SoundId = "rbxassetid://24111685" s1.Volume = 1
+            local s2 = Instance.new("Sound", acc) s2.SoundId = "rbxassetid://24111782" s2.Volume = 1
+            local s3 = Instance.new("Sound", acc) s3.SoundId = "rbxassetid://24111798" s3.Volume = 1
+            task.spawn(function()
+                while acc and acc.Parent do
+                    local choice = math.random(1, 3)
+                    if choice == 1 then s1:Play() elseif choice == 2 then s2:Play() else s3:Play() end
+                    task.wait(math.random(3, 7))
+                end
+            end)
+        end
+    end
+end)
+
 -- GUNS
 for skinName, _ in pairs(_G.NidavellirData.WEAPON_SKINS) do
     local baseWepName = string.split(skinName, " ")[1]
