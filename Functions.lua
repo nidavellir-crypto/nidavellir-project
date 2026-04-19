@@ -111,24 +111,38 @@ end
 
 _G.NidavellirFunctions.applyAcc = function(char, args)
     if not char or not args then return end
-    for _, v in ipairs(char:GetChildren()) do if v.Name == "NidavellirCustomAcc" then v:Destroy() end end
+    
+    -- Remove old accessories first
+    for _, v in ipairs(char:GetChildren()) do 
+        if v.Name == "NidavellirCustomAcc" then v:Destroy() end 
+    end
+    
     local handle = Instance.new("Part")
     handle.Name = "NidavellirCustomAcc"
     handle.Size = Vector3.new(1, 1, 1)
     handle.CanCollide = false
     handle.Massless = true
     handle.Parent = char
+    
     local mesh = Instance.new("SpecialMesh", handle)
     mesh.MeshType = Enum.MeshType.FileMesh
     mesh.MeshId = args[1]:find("rbxassetid") and args[1] or "rbxassetid://" .. args[1]
     mesh.TextureId = args[2]:find("rbxassetid") and args[2] or "rbxassetid://" .. args[2]
     mesh.Scale = args[5] or Vector3.new(1,1,1)
+    
     local head = char:WaitForChild("Head", 2)
     if head then
         local weld = Instance.new("Weld", handle)
         weld.Part0 = handle
         weld.Part1 = head
         weld.C0 = CFrame.new(0, args[3] or 0, args[4] or 0)
+    end
+
+    -- Check if there is extra data for Fire/Particles (args[6])
+    if args[6] then
+        local fire = Instance.new("Fire", handle)
+        if args[6].Color then fire.Color = args[6].Color end
+        if args[6].Heat then fire.Heat = args[6].Heat end
     end
 end
 
