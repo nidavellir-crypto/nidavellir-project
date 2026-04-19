@@ -48,3 +48,5 @@ _G.NidavellirData.Skins = {
     {"PALE", Color3.fromRGB(253, 234, 212)}, {"LIGHT", Color3.fromRGB(246, 203, 175)}, {"MEDIUM", Color3.fromRGB(219, 153, 114)},
     {"TAN", Color3.fromRGB(180, 113, 76)}, {"DARK", Color3.fromRGB(124, 76, 50)}, {"DEEP", Color3.fromRGB(67, 40, 24)}, {"BLACK", Color3.fromRGB(0, 0, 0)}
 }
+-
+
